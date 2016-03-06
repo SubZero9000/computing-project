@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>	
+<center><h1>Brent Athletics Results System</h1></center>
+<h2>Navigate</h2>
+<input name="btnSchoolTotals" type="button" value="School Totals" onclick="window.open('schooltotals.php','_self')"/>
+	<br>	
+		<input name="btnBGtotals" type="button" value="Boys/Girls Totals" onclick="window.open('bgtotal.php','_self')"/> 
+	<br/>
+		<input name="btnBGtotSkl" type="button" value="Boys/Girls Totals for each school" onclick="window.open('bgtotalallskl.php','_self')"/> 
+
+<br>
+<h2>Choose to enter results:</h2>
+<h3>Event</h3>
+<form action = 'resultEntryInputForm.php' method = 'GET'>
+<select name="cmbEvent">
+  <option disabled>Choose Event</option>
+  <option value="6">1500m</option>
+  <option value="2">800m</option>
+  <option value="7">400m</option>
+  <option value="8">300m</option>
+  <option value="5">200m</option>
+  <option value="1">100m</option>
+  <option value="9">Relay</option>
+  <option value="3">Long Jump</option>
+  <option value="4">Triple Jump</option>
+  <option value="10">High Jump</option>
+  <option value="11">Shot Putt</option>
+  <option value="12">Discus</option>
+  <option value="13">Javelin</option>
+</select> 
+<br>
+<h3>Year Group</h3>
+<select name="cmbYrGroup">
+  <option value="7">Year 7</option>
+  <option value="8">Year 8</option>
+  <option value="9">Year 9</option>
+  <option value="10">Year 10</option>
+</select> 
+<br>
+<h3>Gender</h3>
+<select name="cmbGender">
+  <option value="M">Male</option>
+  <option value="F">Female</option>
+</select> 
+<br>
+<br>
+<input type = 'submit' value = 'Enter'>
+</form>
+</html>
