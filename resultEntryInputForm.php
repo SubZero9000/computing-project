@@ -27,7 +27,8 @@ $gender  = $_GET['cmbGender'];
 grabs the stud_fname, stud_sname, result_studpoints, result_position, studevent_result 
 where the requirements of the specific stud_gender, stud_yrgroup and event_id is met */
 $eygQuery = "
-    SELECT  stud_fname, 
+    SELECT  s.stud_id AS student_id,
+            stud_fname, 
             stud_sname, 
             result_studpoints, 
             result_position, 
@@ -42,7 +43,8 @@ $eygQuery = "
     AND stud_yrgroup = '$yrGroup'
     AND r.event_id   = '$event'  
 ";
-$result   = mysqli_query($conn, $eygQuery);
+
+$result = mysqli_query($conn, $eygQuery);
 
 //Checks to see if $result query works
 if (!$result) {
@@ -54,9 +56,14 @@ $noStudents = mysqli_num_rows($result);
 
 // Output
 while ($data = mysqli_fetch_assoc($result)) {
+    $studId = $data['student_id'];
     $studName = $data['stud_fname'] . " " . $data['stud_sname'];
     $studNameResult = $data['stud_fname'] . $data['stud_sname']."Result";
     $studNamePosition = $data['stud_fname'] . $data['stud_sname']."Position";
+
+    //Array contains the stud_id's
+    $arrayId[] = $studId;
+
     // Outputs the results of the query
     echo $studName;
     echo "<form action='HandleForm.php' method='GET'>";
@@ -95,9 +102,11 @@ echo "</form>";
 session_start();
 $_SESSION['arrayNameResult'] = $arrayNameResult;
 $_SESSION['arrayNamePosition'] = $arrayNamePosition;
+$_SESSION['arrayId'] = $arrayId;
 
 //var_dump($arrayNameResult);
 var_dump($arrayNamePosition);
+//var_dump($arrayId);
 mysqli_close($conn);
 ?>
 </html>
