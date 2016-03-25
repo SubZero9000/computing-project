@@ -55,27 +55,49 @@ $noStudents = mysqli_num_rows($result);
 // Output
 while ($data = mysqli_fetch_assoc($result)) {
     $studName = $data['stud_fname'] . " " . $data['stud_sname'];
+    $studNameResult = $data['stud_fname'] . $data['stud_sname']."Result";
+    $studNamePosition = $data['stud_fname'] . $data['stud_sname']."Position";
     // Outputs the results of the query
     echo $studName;
+    echo "<form action='HandleForm.php' method='GET'>";
     // Text box
-    $studName = str_replace(' ', '', $studName);
-    $studName .= 'Result';
-    echo "<input type='text' name='txtBox' value=" . $data['studevent_result'] . ">";
+    echo "<input type='text' name='$studNameResult' value=" . $data['studevent_result'] . ">";
+
+    // Array contains $studNameResult
+    $arrayNameResult[] = $studNameResult;
+
     // Drop-down list
-    $studName = str_replace('Result', '', $studName);
-    $studName .= 'Position';
-    echo "<select name='cmbPosition'>";
+    echo "<select name='$studNamePosition'>";
     echo "<option>" . $data['result_position'] . "</option>";
     for ($i = 1; $i <= $noStudents; $i++) {
-        echo "<option value='$i'>$i</option>";
+        echo "<option value='$i'>$i</option>";   
     }
     echo "</select>";
+
+    // Array contains $studNamePosition
+    $arrayNamePosition[] = $studNamePosition;
+
     // Outputs the student points that is already in the database
-    echo $data['result_studpoints'];
+    // echo $data['result_studpoints']; 
+    //$position = $_GET['cmbPosition'];
+    //echo $noStudents;
+    //echo $position;
+    //$points = ($noStudents + 1) - $position;
+    //echo $points;
     echo "<br>";
 }
 echo "<br>";
 
+echo "<input type='Submit' name='btnSubmit' value='Submit'>";
+echo "</form>";
+
+// Transferring array to HandleForm.php
+session_start();
+$_SESSION['arrayNameResult'] = $arrayNameResult;
+$_SESSION['arrayNamePosition'] = $arrayNamePosition;
+
+//var_dump($arrayNameResult);
+var_dump($arrayNamePosition);
 mysqli_close($conn);
 ?>
 </html>
