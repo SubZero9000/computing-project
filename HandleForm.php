@@ -18,41 +18,43 @@ if (!$conn) {
 echo "<br>";
 
 session_start();
-/* loops through each row in the global $_SESSION variable which
-contains the array and uses the $value to GET the data in the text
-boxes and output them */
-
-// studevent_result = 
+// Values of the text box (txtBox)
+$i = 0;
+$studResult = array();
 foreach ($_SESSION['arrayNameResult'] as $value) {
-$studResult = $_GET[$value];
-echo $studResult;
-echo "<br>";
+    $studResult[$i] = $_GET[$value];
+    $i++;
 }
 
-// result_postion = 
+// Values of drop-down lists (cmbPosition)
+$studPosition = array();
+$i = 0;
 foreach ($_SESSION['arrayNamePosition'] as $value) {
-$studPosition = $_GET[$value];
-echo $studPosition;
-echo "<br>";
+    $studPosition[$i] = $_GET[$value];
+    $i++;
 }
 
-echo "<br>";
-
-// stud_id = 
+// stud_id of the specific studuents
+$stud_id = array();
+$i = 0;
 foreach ($_SESSION['arrayId'] as $value) {
-echo $value;
-echo "<br>";
+    $stud_id[$i] = $value;
+    $i++;
 }
 
-// UPDATE query, this will update the studevent_result and result_position
-// column in the database for the specific stud_id.
-$updateQuery = "
-    UPDATE result
-    SET studevent_result = '00:20:33',
-        result_position = '6'
-    WHERE result.stud_id = '12'
-";
-$updateRow = mysqli_query($conn, $updateQuery);
+// UPDATE query loops through all the values of $studResult,
+// $studPosition and $stud_id
+for ($j = 0; $j < $i; $j++) {
+    $updateQuery = "
+  UPDATE result
+  SET studevent_result = '$studResult[$j]',
+    result_position = '$studPosition[$j]'
+  WHERE result.stud_id = '$stud_id[$j]'
+  ";
+    
+    $updateRow = mysqli_query($conn, $updateQuery);
+}
+
 mysqli_close($conn);
 ?>
 </html>
