@@ -32,7 +32,13 @@ $i = 0;
 foreach ($_SESSION['arrayNamePosition'] as $value) {
     $studPosition[$i] = $_GET[$value];
     $i++;
+// Calculates the points for each student in the event
+    $points = ($_SESSION['noStudents']+1) - $_GET[$value]; 
+    echo $points;  
+    $arrayPoints[] = $points; 
 }
+
+$_SESSION['arrayPoints'] = $arrayPoints;
 
 // stud_id of the specific studuents
 $stud_id = array();

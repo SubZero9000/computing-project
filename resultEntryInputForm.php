@@ -17,6 +17,8 @@ if (!$conn) {
 }
 echo "<br>";
 
+session_start();
+
 // These gets the values entered in the drop-down lists and stores the values as
 // variables.
 $event   = $_GET['cmbEvent'];
@@ -84,6 +86,11 @@ while ($data = mysqli_fetch_assoc($result)) {
     // Array contains $studNamePosition
     $arrayNamePosition[] = $studNamePosition;
 
+foreach ($_SESSION['arrayPoints'] as $value) { 
+echo $value;
+}
+
+    //echo $_SESSION['points'];
     // Outputs the student points that is already in the database
     // echo $data['result_studpoints']; 
     //$position = $_GET['cmbPosition'];
@@ -95,14 +102,16 @@ while ($data = mysqli_fetch_assoc($result)) {
 }
 echo "<br>";
 
+print_r($_SESSION['arrayPoints']);
+
 echo "<input type='Submit' name='btnSubmit' value='Submit'>";
 echo "</form>";
 
 // Transferring array to HandleForm.php
-session_start();
 $_SESSION['arrayNameResult'] = $arrayNameResult;
 $_SESSION['arrayNamePosition'] = $arrayNamePosition;
 $_SESSION['arrayId'] = $arrayId;
+$_SESSION['noStudents'] = $noStudents;
 
 //var_dump($arrayNameResult);
 var_dump($arrayNamePosition);
