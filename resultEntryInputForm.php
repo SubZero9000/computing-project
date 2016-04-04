@@ -97,7 +97,7 @@ $j++;
 }
 echo "<br>";
 
-print_r($_SESSION['arrayPoints']);
+//print_r($_SESSION['arrayPoints']);
 
 echo "<input type='Submit' name='btnSubmit' value='Submit'>";
 echo "</form>";

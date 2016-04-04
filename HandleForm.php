@@ -50,13 +50,22 @@ foreach ($_SESSION['arrayId'] as $value) {
     $i++;
 }
 
+// Points for each student in the event
+$studPoints = array();
+$i = 0;
+foreach ($arrayPoints as $value) {
+    $studPoints[$i] = $value;
+    $i++;
+}
+
 // UPDATE query loops through all the values of $studResult,
 // $studPosition and $stud_id
 for ($j = 0; $j < $i; $j++) {
     $updateQuery = "
   UPDATE result
   SET studevent_result = '$studResult[$j]',
-    result_position = '$studPosition[$j]'
+      result_position = '$studPosition[$j]',
+      result_studpoints = '$studPoints[$j]'
   WHERE result.stud_id = '$stud_id[$j]'
   ";
     
