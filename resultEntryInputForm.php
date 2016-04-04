@@ -57,6 +57,8 @@ if (!$result) {
 $noStudents = mysqli_num_rows($result);
 
 // Output
+// $j is the current row being fetched
+$j = 0;
 while ($data = mysqli_fetch_assoc($result)) {
     $studId = $data['student_id'];
     $studName = $data['stud_fname'] . " " . $data['stud_sname'];
@@ -86,18 +88,11 @@ while ($data = mysqli_fetch_assoc($result)) {
     // Array contains $studNamePosition
     $arrayNamePosition[] = $studNamePosition;
 
-foreach ($_SESSION['arrayPoints'] as $value) { 
-echo $value;
-}
+// Outputs the points gained for each student in the event
+echo $_SESSION['arrayPoints'][$j];
+// Increments, so if fetches each row listed
+$j++;
 
-    //echo $_SESSION['points'];
-    // Outputs the student points that is already in the database
-    // echo $data['result_studpoints']; 
-    //$position = $_GET['cmbPosition'];
-    //echo $noStudents;
-    //echo $position;
-    //$points = ($noStudents + 1) - $position;
-    //echo $points;
     echo "<br>";
 }
 echo "<br>";
