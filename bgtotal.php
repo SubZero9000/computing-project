@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+    <head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+<body>
+<div>
+    <h2>Boys and Girls totals</h2>
+        <input name="btnBack" type="button" value="Back" onclick="window.open('selection.html','_self')"/>
+</div>
 <?php
 // Connecting to SQL server
 $servername = "localhost";
@@ -31,12 +39,22 @@ if (!$result) {
 echo "FAIL";
 }
 
-// Output
+// Output: Table containing boys and the girls totals for the overall event
+echo "<table>";
+echo "<tr>";
+echo "<th>Gender</th>";
+echo "<th>Total Points</th>";
+echo "</tr>";
 while ($data = mysqli_fetch_assoc($result)) {
-echo "Total " . $data['stud_gender'] . ": " . $data['totalbg'] . "<br />"; 
+echo "<tr>"; 
+echo "<td>".$data['stud_gender']."</td>";
+echo "<td>".$data['totalbg']."</td>";
+echo "</tr>";
 }
+echo "</table>";
 
 mysqli_close($conn);
 ?>
+</body>
 </html>
 

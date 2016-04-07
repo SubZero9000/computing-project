@@ -1,0 +1,39 @@
+/* Page layout and style */
+
+div {
+	width: 100%;
+	font-family: "sans-serif";
+	border: 3px solid #0047b3; /*Blue border*/
+	background-color: #4d94ff; /*Light Blue background*/
+}
+
+h2 {
+	padding-left: 10px;
+}
+
+/*Back button*/
+input {
+	position: absolute;
+	right: 20px;
+	top: 25px;
+	background-color: #001f4d; /*Dark blue*/
+	color: white; /*White font*/
+	padding: 10px 20px; /*Button size(height-width)*/
+	border: none;
+	display: inline-block;
+}
+
+table {
+	border-collapse: collapse;
+	width: 50%;
+}
+
+table,th,td {
+	border: 1px solid black;
+	font-family: "sans-serif";
+}
+		
+th {
+	background-color: #d9d9d9; /*Grey*/
+	height: 40px;
+}

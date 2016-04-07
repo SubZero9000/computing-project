@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+    <head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+<body>
+<div>
+    <h2>School Totals</h2>
+        <input name="btnBack" type="button" value="Back" onclick="window.open('selection.html','_self')"/>
+</div>
 <?php
 // Connecting to SQL server
 $servername = "localhost";
@@ -31,12 +39,23 @@ if (!$result) {
 echo "FAIL";
 }
 
+// Table containing the schools and each schools points in the event
+echo "<table>";
+echo "<tr>";
+echo "<th>School</th>";
+echo "<th>Total Points</th>";
+echo "</tr>";
 // Output.
 while ($data = mysqli_fetch_assoc($result)) {
-echo "Total " . $data['stud_school'] . ": " . $data['total'] . "<br />"; 
+echo "<tr>";  
+echo "<td>".$data['stud_school']."</td>"; 
+echo "<td>".$data['total']."</td>";
+echo "</tr>";
 }
+echo "</table>";
 
 mysqli_close($conn);
 ?>
+</body>
 </html>
 
