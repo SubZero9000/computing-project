@@ -1,0 +1,77 @@
+/* Page layout and style for selection.html */
+
+#mainTitle {
+	width: 100%;
+	font-family: "sans-serif";
+	border: 3px solid #0047b3; /*Blue border*/
+	background-color: #4d94ff; /*Light Blue background*/
+}
+
+#sideBar {
+	height: 800px;
+	width: 30%;
+	font-family: "sans-serif";
+	background: linear-gradient(#0052cc, #4d94ff); /*Blue gradient background*/
+	border: 3px solid #0047b3; /*Blue border*/
+	margin-bottom: 0px;
+	overflow: hidden;
+}
+
+h2 {
+	padding-left: 10px;
+	color: white;
+}
+
+#selection {
+	font-family: "sans-serif";
+	position: absolute;
+	left: 590px;
+	top: 200px;
+}
+
+#secondTitle {
+	width: 400px;
+	font-family: "sans-serif";
+	color: white;
+	border: 3px solid #0047b3; /*Blue border*/
+	background-color: #4d94ff; /*Light Blue background*/
+}
+
+/* All buttons under navigation */
+input {
+	width: 300px;
+}
+
+/* Enter button */
+#enterbtn {
+	width: 100px;
+}
+
+/* Drop-down lists */
+select {
+	width: 200px;
+}
+
+/* Button animation (from w3schools.com) */
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  cursor: pointer;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #001f4d;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #4d4dff}
+
+.button:active {
+  background-color: #4d4dff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
