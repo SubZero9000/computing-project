@@ -1,0 +1,60 @@
+div {
+	width: 100%;
+	font-family: "sans-serif";
+	border: 3px solid #0047b3; /*Blue border*/
+	background-color: #4d94ff; /*Light Blue background*/
+}
+
+h2 {
+	padding-left: 10px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table,th,td {
+	border: 1px solid black;
+	font-family: "sans-serif";
+}
+		
+th {
+	background-color: #d9d9d9; /*Grey*/
+	height: 40px;
+}
+
+.backbtn {
+	position: absolute;
+	right: 20px;
+	top: 25px;
+	background-color: #001f4d; /*Dark blue*/
+	color: white; /*White font*/
+	padding: 10px 20px; /*Button size(height-width)*/
+	border: none;
+	display: inline-block;
+}
+
+/* Button animation (from w3schools.com) */
+
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #001f4d;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #4d4dff}
+
+.button:active {
+  background-color: #4d4dff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

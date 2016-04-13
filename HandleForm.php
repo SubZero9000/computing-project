@@ -1,5 +1,64 @@
 <!DOCTYPE html>
 <html>
+<head></head>
+
+<body>
+<!--CSS for HandleForm.php-->
+<style>
+	div {
+		width: 100%;
+		height: 240px;
+		font-family: "sans-serif";
+		border: 3px solid #0047b3; /*Blue border*/
+		background-color: #4d94ff; /*Light Blue background*/
+	}	
+
+/* Button animation (from w3schools.com) */
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  cursor: pointer;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #001f4d;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  width: 250px;
+}
+
+.button:hover {background-color: #4d4dff}
+
+.button:active {
+  background-color: #4d4dff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
+}
+</style>
+
+<div>
+<center>
+<h2>Form submitted successfully!</h2>
+<!-- Returns user to resultEntryInputForm.php -->
+<!--CODE FROM w3schools http://www.w3schools.com/jsref/met_his_back.asp-->
+ <button class="button" onclick="goBack()">Return to previous page</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<br>
+<br>
+<!-- Returns user to selection.html -->
+<input name="btnBack" class="button" type="button" value="Return to home page" onclick="window.open('selection.html','_self')"/>
+</center>
+</div>
+
 <?php
 // Connecting to SQL server
 $servername = "localhost";
@@ -34,7 +93,7 @@ foreach ($_SESSION['arrayNamePosition'] as $value) {
     $i++;
 // Calculates the points for each student in the event
     $points = ($_SESSION['noStudents']+1) - $_GET[$value]; 
-    echo $points;
+    //echo $points;
 // Array which stores all the values of $points.
     $arrayPoints[] = $points; 
 }
@@ -74,4 +133,5 @@ for ($j = 0; $j < $i; $j++) {
 
 mysqli_close($conn);
 ?>
+</body>
 </html>
