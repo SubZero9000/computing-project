@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 18, 2016 at 02:47 PM
+-- Generation Time: Apr 14, 2016 at 11:57 AM
 -- Server version: 5.5.38-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.4
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `result` (
   PRIMARY KEY (`result_id`),
   KEY `stud_id` (`stud_id`),
   KEY `event_id` (`event_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `result`
@@ -78,13 +78,14 @@ INSERT INTO `result` (`result_id`, `result_studpoints`, `event_id`, `stud_id`, `
 (5, 10, 1, 1, '00:10:24', 0),
 (6, 7, 2, 4, '02:10:03', 0),
 (7, 1, 3, 3, '1.50', 1),
-(8, 9, 1, 5, '00:09:62', 0),
+(8, 5, 1, 5, '00:09:70', 2),
 (9, 10, 5, 6, '00:19:19', 0),
-(10, 8, 4, 7, '6.27', 0),
-(11, 8, 1, 8, '00:09:63', 0),
-(12, 7, 1, 10, '00:10:53', 0),
-(13, 5, 1, 9, '00:12:63', 0),
-(14, 2, 1, 11, '00:13:03', 0);
+(10, 1, 4, 7, '6.27', 1),
+(11, 4, 1, 8, '00:10:63', 3),
+(12, 3, 1, 10, '00:11:53', 4),
+(13, 2, 1, 9, '00:16:70', 5),
+(14, 1, 1, 11, '00:19:30', 6),
+(15, 6, 1, 12, '00:09:11', 1);
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   `stud_school` varchar(60) NOT NULL,
   `stud_gender` char(1) NOT NULL,
   PRIMARY KEY (`stud_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `students`
@@ -116,7 +117,8 @@ INSERT INTO `students` (`stud_id`, `stud_fname`, `stud_sname`, `stud_yrgroup`, `
 (8, 'Bobby', 'Brown', 9, 'Ark', 'M'),
 (9, 'Richard', 'Green', 9, 'CCA', 'M'),
 (10, 'Daniel', 'Grey', 9, 'Preston Manor', 'M'),
-(11, 'David', 'Bolt', 9, 'Ark', 'M');
+(11, 'David', 'Bolt', 9, 'Ark', 'M'),
+(12, 'Jason', 'Moore', 9, 'Ark', 'M');
 
 --
 -- Constraints for dumped tables
