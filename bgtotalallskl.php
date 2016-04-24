@@ -9,21 +9,8 @@
         <input name="btnBack" type="button" value="Back" onclick="window.open('selection.html','_self')"/>
 </div>
 <?php
-// Connecting to SQL server
-$servername = "localhost";
-$username   = "root";
-$password   = "Lampserve1";
-$dbname     = "brent_athletics";
-
-// Creates connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-} else {
-    echo "Connected!";
-}
-echo "<br>";
+// Runs the connection script
+require_once("connect.php");
 
 // FUNCTION which calculates the sum of the boys and girls for each school 
 
@@ -52,7 +39,7 @@ echo "<br>";
     // $data stores the results of the query for each line within while loop
     while ($data = mysqli_fetch_assoc($mainQuery)) {
 echo "<tr>"; 
-echo "<td>".$bgTotSkl_SchoolName." ".$data['stud_gender']."</td>"; 
+echo "<td>".$data['stud_gender']."</td>"; 
 echo "<td>".$data['totalbg']."</td>"; 
 echo "</tr>";
     }

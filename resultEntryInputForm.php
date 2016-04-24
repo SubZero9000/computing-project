@@ -5,15 +5,12 @@
 	</head>
 
 <body>
-<?php
-// Connecting to SQL server
-$servername = "localhost";
-$username   = "root";
-$password   = "Lampserve1";
-$dbname     = "brent_athletics";
 
-// Creates connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+<input name='btnBack' class='backbtn' type='button' value='Back' onclick="window.open('selection.html','_self')"/>
+
+<?php
+// Runs the connection script
+require_once("connect.php");
 
 session_start();
 
@@ -33,15 +30,8 @@ $eventName = $data['event_name'];
 
 echo "<div>";
 echo "<h2>Year $yrGroup ($gender) - $eventName</h2>";
-echo "<input name='btnBack' class='backbtn' type='button' value='Back' onclick='window.open('selection.html','_self')'/>";
 echo "</div>";
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-} else {
-    echo "Connected!";
-}
 echo "<br>";
 
 /* The query $eygQuery, where the 'eyg' stands for event, year group and gender, 

@@ -9,20 +9,8 @@
         <input name="btnBack" type="button" value="Back" onclick="window.open('selection.html','_self')"/>
 </div>
 <?php
-// Connecting to SQL server
-$servername = "localhost";
-$username = "root";
-$password = "Lampserve1";
-$dbname = "brent_athletics";
-
-// Creates connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-die("Connection failed: " . mysqli_connect_error());
-} else {
-	echo "Connected!";
-}
+// Runs the connection script
+require_once("connect.php");
 echo "<br>";
 
 // Sums upp all the points recieved by each student for specific school
@@ -32,11 +20,12 @@ $myQuery = "
   JOIN students ON result.stud_id WHERE result.stud_id = students.stud_id
   GROUP BY stud_school
 ";
-$result = mysqli_query($conn, $myQuery);
+// Runs $myQuery
+$result  = mysqli_query($conn, $myQuery);
 
 //Checks to see if $result query works.
 if (!$result) {
-echo "FAIL";
+    echo "FAIL";
 }
 
 // Table containing the schools and each schools points in the event
@@ -45,17 +34,17 @@ echo "<tr>";
 echo "<th>School</th>";
 echo "<th>Total Points</th>";
 echo "</tr>";
-// Output.
+// Output
 while ($data = mysqli_fetch_assoc($result)) {
-echo "<tr>";  
-echo "<td>".$data['stud_school']."</td>"; 
-echo "<td>".$data['total']."</td>";
-echo "</tr>";
+    echo "<tr>";
+    echo "<td>" . $data['stud_school'] . "</td>";
+    echo "<td>" . $data['total'] . "</td>";
+    echo "</tr>";
 }
 echo "</table>";
 
+// Closes the connection
 mysqli_close($conn);
-?>
+?> 
 </body>
 </html>
-

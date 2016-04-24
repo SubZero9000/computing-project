@@ -9,20 +9,8 @@
         <input name="btnBack" type="button" value="Back" onclick="window.open('selection.html','_self')"/>
 </div>
 <?php
-// Connecting to SQL server
-$servername = "localhost";
-$username = "root";
-$password = "Lampserve1";
-$dbname = "brent_athletics";
-
-// Creates connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-die("Connection failed: " . mysqli_connect_error());
-} else {
-	echo "Connected!";
-}
+// Runs the connection script
+require_once("connect.php");
 echo "<br>";
 
 // Sum of boys and girls
